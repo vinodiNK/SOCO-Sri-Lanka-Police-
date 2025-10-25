@@ -1,22 +1,28 @@
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // 👈 import icons
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 
 function LoginPage() {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // You can add real authentication here later
-    navigate("/home"); // Redirect to Home page
+    navigate("/home"); // redirect to home page
   };
 
   const handleGoogleLogin = () => {
     alert("Google Login clicked!");
   };
 
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="login-container">
-      {/* Top Navigation */}
+      {/* Navigation Bar */}
       <nav className="nav-bar">
         <ul>
           <li>Home</li>
@@ -28,7 +34,7 @@ function LoginPage() {
       {/* Login Box */}
       <div className="login-box">
         <img
-          src="/policeLogo.jfif"
+          src="/police-logo.png"
           alt="Sri Lanka Police Logo"
           className="police-logo"
         />
@@ -37,10 +43,19 @@ function LoginPage() {
 
         <form onSubmit={handleLogin}>
           <input type="text" placeholder="Username" required />
+
+          {/* Password Field */}
           <div className="password-field">
-            <input type="password" placeholder="Password" required />
-            <span className="eye-icon">👁️</span>
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              required
+            />
+            <span className="eye-icon" onClick={togglePassword}>
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
           </div>
+
           <button type="submit" className="login-btn">
             Log In
           </button>

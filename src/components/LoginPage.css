@@ -124,3 +124,18 @@ input {
     margin-top: 15px;
     cursor: pointer;
 }
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    color: #555;
+    font-size: 18px;
+    transition: color 0.2s ease;
+}
+
+.eye-icon:hover {
+    color: #0a2972;
+    /* blue hover color */
+}
