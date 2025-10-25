@@ -1,9 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 
 function LoginPage() {
+  const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
-    alert("Login button clicked!");
+    // You can add real authentication here later
+    navigate("/home"); // Redirect to Home page
   };
 
   const handleGoogleLogin = () => {
