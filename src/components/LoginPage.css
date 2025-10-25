@@ -1,137 +1,193 @@
-/* Wrapper for the whole login page */
+/* Wrapper */
 
 .login-wrapper {
     display: flex;
     height: 100vh;
-    width: 100%;
-    font-family: Arial, sans-serif;
+    background-color: #ecf0f1;
+    font-family: "Poppins", sans-serif;
 }
 
 
-/* Left side background */
+/* Left Side */
 
 .login-left {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    background-color: #f4f6f8;
+    overflow: hidden;
+    margin-left: 20px;
 }
 
 
-/* Right side login box */
+/* Top Blue Banner */
+
+.blue-background {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+
+/* Slideshow Styles */
+
+.slideshow-container {
+    width: 100%;
+    height: 550px;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.slideshow-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+
+/* Right Side */
 
 .login-right {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f7f7f7;
+    width: 40%;
+    background-color: white;
 }
 
 
-/* Login box container */
+/* Login Box */
 
 .login-box {
-    width: 350px;
-    padding: 40px;
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 70%;
+    padding: 30px;
     text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
 }
-
-
-/* Police logo */
 
 .police-logo {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 20px;
+    width: 100px;
+    margin-bottom: 10px;
 }
-
-
-/* Login title */
-
-.login-box h2 {
-    margin: 5px 0;
-}
-
-
-/* Login text */
 
 .login-text {
     color: #555;
     margin-bottom: 20px;
 }
 
-
-/* Form inputs */
-
-.login-box input[type="text"],
-.login-box input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-
-/* Password field with eye icon */
-
 .password-field {
     position: relative;
+}
+
+.password-field input {
+    width: 100%;
+    padding-right: 40px;
 }
 
 .eye-icon {
     position: absolute;
     right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 10px;
     cursor: pointer;
     color: #888;
 }
 
 
-/* Login button */
+/* Buttons */
 
-.login-btn {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border: none;
-    background-color: #2c3e50;
-    color: #fff;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-
-/* Google login button */
-
+.login-btn,
 .google-btn {
     width: 100%;
     padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    color: #555;
-    border-radius: 8px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+}
+
+.login-btn {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.google-btn {
+    background-color: white;
+    border: 1px solid #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
 }
 
 .google-logo {
     width: 20px;
     height: 20px;
-    margin-right: 10px;
 }
 
 
-/* Or separator */
+/* Input Fields */
 
-.login-box h5 {
-    margin: 15px 0 5px 0;
-    color: #888;
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 90%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #2c3e50;
+    /* Navy border */
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    outline: none;
+    color: #2c3e50;
+}
+
+
+/* Focus Effect */
+
+.login-box input[type="text"]:focus,
+.login-box input[type="password"]:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 8px rgba(26, 115, 232, 0.4);
+    background-color: #ffffff;
+}
+
+
+/* Placeholder Text */
+
+.login-box input::placeholder {
+    color: #777;
+    font-style: italic;
+}
+
+
+/* Password Field Container */
+
+.password-field {
+    position: relative;
+}
+
+
+/* Eye Icon */
+
+.eye-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #2c3e50;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.eye-icon:hover {
+    color: #1a73e8;
 }

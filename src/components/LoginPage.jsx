@@ -1,21 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
-// Import images from src/assets/images
-import googleIcon from "../assets/images/google-icon.png";
-import bgImage from "../assets/images/police-bg.jfif";
-import policeLogo from "../assets/images/policeLogo.jfif";
-
 import "./LoginPage.css";
 
 function LoginPage() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
+  // 👇 Dynamic Slideshow Images
+  const images = ["police1.jpg", "police2.jpg", "police3.jpg", "police4.png","police5.jpg"];
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 3000); // change every 3 seconds
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   const handleLogin = (e) => {
     e.preventDefault();
-    navigate("/home"); // redirect to home page
+    navigate("/home");
   };
 
   const handleGoogleLogin = () => {
@@ -28,21 +33,30 @@ function LoginPage() {
 
   return (
     <div className="login-wrapper">
-      {/* Left Side Background */}
-      <div
-        className="login-left"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      ></div>
+      {/* Left Side */}
+      <div className="login-left">
+        {/* Top Blue Banner */}
+        <img
+          src={require("../assets/images/top.jpg")}
+          alt="Top Banner"
+          className="blue-background"
+        />
 
-      {/* Right Side Login Box */}
+        {/* Slideshow Section */}
+        <div className="slideshow-container">
+          <img
+            src={require(`../assets/images/${images[currentImage]}`)}
+            alt="Slideshow"
+            className="slideshow-image"
+          />
+        </div>
+      </div>
+
+      {/* Right Side Login */}
       <div className="login-right">
         <div className="login-box">
           <img
-            src={policeLogo}
+            src={require("../assets/images/policeLogo.jfif")}
             alt="Sri Lanka Police Logo"
             className="police-logo"
           />
@@ -71,7 +85,11 @@ function LoginPage() {
 
           <h5>Or</h5>
           <button className="google-btn" onClick={handleGoogleLogin}>
-            <img src={googleIcon} alt="Google Logo" className="google-logo" />
+            <img
+              src={require("../assets/images/google-icon.png")}
+              alt="Google Logo"
+              className="google-logo"
+            />
             Log in with Google
           </button>
         </div>
