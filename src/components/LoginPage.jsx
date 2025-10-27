@@ -7,14 +7,20 @@ function LoginPage() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
-  // 👇 Dynamic Slideshow Images
-  const images = ["police1.jpg", "police2.jpg", "police3.jpg", "police4.png","police5.jpg"];
+  // 👇 Background Slideshow Images
+  const images = [
+    "police1.jpg",
+    "police2.jpg",
+    "police3.jpg",
+    "police4.png",
+    "police5.jpg"
+  ];
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 3000); // change every 3 seconds
+    }, 3000);
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -32,31 +38,19 @@ function LoginPage() {
   };
 
   return (
-    <div className="login-wrapper">
-      {/* Left Side */}
-      <div className="login-left">
-        {/* Top Blue Banner */}
-        <img
-          src={require("../assets/images/top.jpg")}
-          alt="Top Banner"
-          className="blue-background"
-        />
+    <div
+      className="login-page"
+      style={{
+        backgroundImage: `url(${require(`../assets/images/${images[currentImage]}`)})`,
+      }}
+    >
+      
 
-        {/* Slideshow Section */}
-        <div className="slideshow-container">
-          <img
-            src={require(`../assets/images/${images[currentImage]}`)}
-            alt="Slideshow"
-            className="slideshow-image"
-          />
-        </div>
-      </div>
-
-      {/* Right Side Login */}
-      <div className="login-right">
+      {/* Centered Login Box */}
+      <div className="login-container">
         <div className="login-box">
           <img
-            src={require("../assets/images/policeLogo.jfif")}
+            src={require("../assets/images/browser-logo.png")}
             alt="Sri Lanka Police Logo"
             className="police-logo"
           />

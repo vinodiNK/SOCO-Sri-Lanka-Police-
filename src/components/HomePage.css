@@ -1,0 +1,11 @@
+.home-page {
+    width: 100%;
+}
+
+.home-header-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin-top: 20px;
+}
